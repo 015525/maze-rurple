@@ -1,0 +1,31 @@
+def turn_right():
+    repeat(turn_left,3)
+
+def move_forward():
+    while front_is_clear():
+        move()
+        if on_beeper():
+            turn_off()
+
+def moving_in_maze():
+    while right_is_clear():
+        turn_right()
+        move_forward()
+    while left_is_clear():
+        turn_left()
+        move_forward()
+
+
+turn_left()
+move_forward()
+moving_in_maze()
+if facing_north():
+    repeat(turn_left,2)
+    move_forward()
+
+if right_is_clear():
+    turn_right()
+    move()
+
+repeat(moving_in_maze,2)
+
